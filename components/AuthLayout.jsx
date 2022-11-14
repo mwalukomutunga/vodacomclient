@@ -21,7 +21,7 @@ const AuthLayout = ({ children }) => {
               
             </div>
          </div>
-         <div className="p-3 text-center"><span className="mr-2">&copy;</span><span>2022</span><span className="mr-2">-</span><span>ZEP_RE</span><br/></div>
+         <div className="p-3 text-center"><span className="mr-2">&copy;</span><span>2022</span><span className="mr-2">-</span><span>Acre Africa</span><br/></div>
       </div>
    </div>
   
