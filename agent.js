@@ -13,10 +13,10 @@ const notify = (msg) =>
     draggable: true,
     progress: undefined,
   });
-// axios.defaults.baseURL = isProd
-//   ? "http://apistaging.acreafrica.com"
-//   : "http://localhost:4100/";
- axios.defaults.baseURL ='http://apistaging.acreafrica.com/';
+axios.defaults.baseURL = isProd
+  ? "https://apistaging.acreafrica.com"
+  : "http://localhost:4100/";
+//  axios.defaults.baseURL ='https://apistaging.acreafrica.com/';
 axios.interceptors.request.use((config) => {
   const state = store.getState();
   console.log(state)
