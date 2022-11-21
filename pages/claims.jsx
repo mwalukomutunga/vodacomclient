@@ -7,13 +7,13 @@ import requests from "../agent";
 const page = "/api/Claims/";
 
 const columns = [
-  "orderNo",
-  "identityReference",
-  "valueChain",
-  "claimReason",
-  "insuredName",
-  "cover",
-  "createdAt",
+  "OrderNo",
+  "IdentityReference",
+  "ValueChain",
+  "ClaimReason",
+  "InsuredName",
+  "Cover",
+  "CreatedAt",
   "Status"
 ];
 
@@ -22,7 +22,7 @@ const CardSales = () => {
   const [inputs, setInputs] = useState({});
   useEffect(() => {
     requests.get(page).then((response) => {
-      setData(response);
+      setData(response?.Claims);
     });
   }, []);
 

@@ -7,21 +7,20 @@ import requests from "../agent";
 const page = "/Orders";
 
 const columns = [
-  "valueChain",
-  "insured",
-  "phone",
-  "plantingDate",
-  "level1",
-  "level2",
-  "premium",
-  "duration",
-  "rate",
-  "currency",
-  "insuranceType",
-  "createdAt",
-  "cover",
-  "latitude",
-  "longitude",
+  "ValueChain",
+  "Insured",
+  "ActivationDate",
+  "region",
+  "Premium",
+  "Duration",
+  "Rate",
+  "Currency",
+  "InsuranceType",
+  "CreatedAt",
+  "Cover",
+  "Status"
+  // "Latitude",
+  // "Longitude",
 ];
 
 const CardSales = () => {
@@ -29,7 +28,8 @@ const CardSales = () => {
   const [inputs, setInputs] = useState({});
   useEffect(() => {
     requests.get(page).then((response) => {
-      setData(response);
+      // setData(response);
+      setData(response?.Insurances);
     });
   }, []);
 
