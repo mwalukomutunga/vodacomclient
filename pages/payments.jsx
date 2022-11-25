@@ -4,28 +4,26 @@ import { Item, RequiredRule } from "devextreme-react/form";
 import { Form, Label } from "devextreme-react/data-grid";
 import TextBox from "devextreme-react/text-box";
 import requests from "../agent";
-const page = "/api/Vodacom";
+const page = "/Orders/Payments";
 
 const columns = [
-  "ValueChain",
-  "Level1",
-  "Level2",
-  "UniqueCode",
-  "InsuranceType",
-  "InsuranceId",
-  "ExpiryDate",
+  "PaymentDate",
+  "ActivationDate",
+  "OrderNo",
   "Premium",
-  "Duration",
+  "Paid",
+  "Cover",
+  "Insured",
+  "Region",
+  "Currency",
   "Rate",
   "Currency",
-  "InsuranceType",
-  "Cover",
-  "Status"
+  "Country"
   // "Latitude",
   // "Longitude",
 ];
 
-const CardSales = () => {
+const Payments = () => {
   const [data, setData] = useState([]);
   const [inputs, setInputs] = useState({});
   useEffect(() => {
@@ -50,12 +48,12 @@ const CardSales = () => {
       <div className="col-xl-12">
         <div className="card">
           <div className="card-body">
-            <h4 className="header-title mb-3"> Card Sales </h4>
+            <h4 className="header-title mb-3"> Payments </h4>
             <DataTable
               columns={columns}
               dataSource={data}
-              Page ="CardSales"      
-              title="CardSales"
+              Page ="Payments"      
+              title="Payments"
               handlesave={handleSave}
               handleDelete={handleDelete}
               handleUpdate={handleUpdate}
@@ -74,7 +72,7 @@ const CardSales = () => {
 //     'Cache-Control',
 //     'public, s-maxage=36000, stale-while-revalidate=5900000'
 //   )
-//   const CardSaless = await requests.get("CardSales");  
+//   const Paymentss = await requests.get("CardSales");  
 //   return {
 //     props: {
 //       CardSaless,
@@ -89,4 +87,4 @@ const CardSales = () => {
 //     },
 //   }
 // }
-export default CardSales;
+export default Payments;

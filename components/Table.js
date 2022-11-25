@@ -23,6 +23,7 @@ const DataTable = ({
   handleDelete,
   handleUpdate,
   title,
+  Page,
   width,
   height,
   children,
@@ -51,6 +52,7 @@ const DataTable = ({
       showRowLines={true}
       rowAlternationEnabled={false}
       columnHidingEnabled={false}
+      columnMinWidth ={90}
       // onRowInserting={(e) => saving(e)}
       // onRowRemoving={deleterecord}
       // onRowUpdated={updaterecord}
@@ -68,7 +70,7 @@ const DataTable = ({
         {children}
       </Editing>
       <ColumnChooser enabled={true}  mode="select"/>
-      <StateStoring enabled={true} type="localStorage" storageKey="klipstorage" />
+      <StateStoring enabled={true} type="localStorage" storageKey={Page} />
       <Grouping contextMenuEnabled={true} />
       <Selection mode="multiple" />
       <Sorting mode="multiple" />

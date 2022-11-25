@@ -6,7 +6,9 @@ import Router, { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import "devextreme/dist/css/dx.light.compact.css";
+
+// import "devextreme/dist/css/dx.light.compact.css";
+import "devextreme/dist/css/dx.softblue.compact.css";
 
 
 import NProgress from 'nprogress'; //nprogress module

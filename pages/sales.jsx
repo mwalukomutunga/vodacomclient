@@ -7,8 +7,9 @@ import requests from "../agent";
 const page = "/Orders";
 
 const columns = [
-  "ValueChain",
+  "ValueChain",  
   "Insured",
+  "OrderNo",
   "ActivationDate",
   "region",
   "Premium",
@@ -53,6 +54,7 @@ const Sales = () => {
               columns={columns}
               dataSource={data}          
               title="Menu Sales"
+              Page ="Menu"
               handlesave={handleSave}
               handleDelete={handleDelete}
               handleUpdate={handleUpdate}
