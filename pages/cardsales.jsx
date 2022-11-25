@@ -45,6 +45,8 @@ const CardSales = () => {
     requests.put(page + e.id, e);
   };
 
+  
+
   return (
     <div className="row">
       <div className="col-xl-12">
