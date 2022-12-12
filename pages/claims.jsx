@@ -22,7 +22,8 @@ const CardSales = () => {
   const [inputs, setInputs] = useState({});
   useEffect(() => {
     requests.get(page).then((response) => {
-      setData(response?.Claims);
+      setData(response?.claims);
+      console.log(response)
     });
   }, []);
 
@@ -44,8 +45,9 @@ const CardSales = () => {
             <h4 className="header-title mb-3"> Claims </h4>
             <DataTable
               columns={columns}
-              dataSource={data}          
-              title="CardSales"
+              dataSource={data}
+              Page ="Claims"              
+              title="Claims"
               handlesave={handleSave}
               handleDelete={handleDelete}
               handleUpdate={handleUpdate}
