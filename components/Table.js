@@ -53,6 +53,7 @@ const DataTable = ({
       rowAlternationEnabled={false}
       columnHidingEnabled={false}
       columnMinWidth ={90}
+      showPageSizeSelector ={true}
       // onRowInserting={(e) => saving(e)}
       // onRowRemoving={deleterecord}
       // onRowUpdated={updaterecord}
