@@ -5,6 +5,7 @@ import { Form, Label } from "devextreme-react/data-grid";
 import TextBox from "devextreme-react/text-box";
 import requests from "../agent";
 const page = "/Orders";
+import { LoadPanel } from 'devextreme-react/load-panel';
 
 const columns = [
   "ValueChain",  
@@ -27,10 +28,12 @@ const columns = [
 const Sales = () => {
   const [data, setData] = useState([]);
   const [inputs, setInputs] = useState({});
-  useEffect(() => {
+  const [isLoading, setLoading] = useState(false);
+  useEffect(() => {   
+    setLoading(true);
     requests.get(page).then((response) => {
-      //  console.log(response.Insurances)
        setData(response?.Insurances);
+       setLoading(false);
     });
   }, []);
 
@@ -50,6 +53,15 @@ const Sales = () => {
         <div className="card">
           <div className="card-body">
             <h4 className="header-title mb-3"> Menu Sales </h4>
+            <LoadPanel
+              shadingColor="rgba(0,0,0,0.4)"
+
+              visible={isLoading}
+              showIndicator={true}
+              shading={true}
+              showPane={true}
+              hideOnOutsideClick={false}
+            />
             <DataTable
               columns={columns}
               dataSource={data}          

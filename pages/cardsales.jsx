@@ -5,6 +5,7 @@ import { Form, Label } from "devextreme-react/data-grid";
 import TextBox from "devextreme-react/text-box";
 import requests from "../agent";
 const page = "/api/Vodacom";
+import { LoadPanel } from 'devextreme-react/load-panel';
 
 const columns = [
   "ValueChain",
@@ -28,10 +29,12 @@ const columns = [
 const CardSales = () => {
   const [data, setData] = useState([]);
   const [inputs, setInputs] = useState({});
+  const [isLoading, setLoading] = useState(false);
   useEffect(() => {
+    setLoading(true);
     requests.get(page).then((response) => {
-      // setData(response);
       setData(response?.Activations);
+      setLoading(false);
     });
   }, []);
 
@@ -53,6 +56,15 @@ const CardSales = () => {
         <div className="card">
           <div className="card-body">
             <h4 className="header-title mb-3"> Card Sales </h4>
+            <LoadPanel
+              shadingColor="rgba(0,0,0,0.4)"
+
+              visible={isLoading}
+              showIndicator={true}
+              shading={true}
+              showPane={true}
+              hideOnOutsideClick={false}
+            />
             <DataTable
               columns={columns}
               dataSource={data}

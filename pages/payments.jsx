@@ -5,6 +5,7 @@ import { Form, Label } from "devextreme-react/data-grid";
 import TextBox from "devextreme-react/text-box";
 import requests from "../agent";
 const page = "/Orders/Payments";
+import { LoadPanel } from 'devextreme-react/load-panel';
 
 const columns = [
   "PaymentDate",
@@ -26,10 +27,12 @@ const columns = [
 const Payments = () => {
   const [data, setData] = useState([]);
   const [inputs, setInputs] = useState({});
+  const [isLoading, setLoading] = useState(false);
   useEffect(() => {
+    setLoading(true);
     requests.get(page).then((response) => {
-      // setData(response);
       setData(response);
+      setLoading(false);
     });
   }, []);
 
@@ -49,17 +52,26 @@ const Payments = () => {
         <div className="card">
           <div className="card-body">
             <h4 className="header-title mb-3"> Payments </h4>
+            <LoadPanel
+              shadingColor="rgba(0,0,0,0.4)"
+
+              visible={isLoading}
+              showIndicator={true}
+              shading={true}
+              showPane={true}
+              hideOnOutsideClick={false}
+            />
             <DataTable
               columns={columns}
               dataSource={data}
-              Page ="Payments"      
+              Page="Payments"
               title="Payments"
               handlesave={handleSave}
               handleDelete={handleDelete}
               handleUpdate={handleUpdate}
               width={500}
               height={350}
-            >            
+            >
             </DataTable>
           </div>
         </div>
@@ -67,24 +79,4 @@ const Payments = () => {
     </div>
   );
 };
-// export async function getServerSideProps({ req, res }) {
-//   res.setHeader(
-//     'Cache-Control',
-//     'public, s-maxage=36000, stale-while-revalidate=5900000'
-//   )
-//   const Paymentss = await requests.get("CardSales");  
-//   return {
-//     props: {
-//       CardSaless,
-//     },
-//   }
-// }
-// export async function getServerSideProps() {
-//   const CardSaless = await requests.get("CardSales");  
-//   return {
-//     props: {
-//       CardSaless,
-//     },
-//   }
-// }
 export default Payments;
