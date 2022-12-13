@@ -42,7 +42,7 @@ const DataTable = ({
     e.cancel = true;
     router.reload();
   };
-  const pageSizes = [20,50, 100,200,500,1000];
+  const pageSizes = [20,50, 100,200,500,1000,'all'];
   return (
     <DataGrid
       dataSource={dataSource}
