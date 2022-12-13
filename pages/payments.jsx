@@ -29,7 +29,7 @@ const Payments = () => {
   useEffect(() => {
     requests.get(page).then((response) => {
       // setData(response);
-      setData(response?.Activations);
+      setData(response);
     });
   }, []);
 
